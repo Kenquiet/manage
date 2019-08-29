@@ -4,14 +4,14 @@
     </div>
 </template>
 
-<style scoped lang="stylus" rel="stylesheet/stylus">
+<style scoped >
     .notfound{
-        width 100%
-        height 100%
-        overflow hidden
+        width:100%;
+        height:100%;
+        overflow:hidden;
     }
     .notfound img {
-        width 100%
-        height 100%
+        width: 100%;
+        height: 100%;
     }
 </style>
