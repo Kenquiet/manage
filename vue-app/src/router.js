@@ -3,7 +3,7 @@ import Router from 'vue-router'
 
 Vue.use(Router);
 
-export default new Router({
+ const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
@@ -22,9 +22,25 @@ export default new Router({
       component: () => import('./views/Register.vue')
     },
     {
+      path: '/login',
+      name: 'Login',
+      component: () => import('./views/Login.vue')
+    },
+    {
       path: '*',
       name: 'NotFound',
       component: () => import('./views/404.vue')
     }
   ]
-})
+});
+
+ router.beforeEach((to, form, next)=> {
+   const isLogin = localStorage.eleToken ? true : false
+   if (to.path === '/login' || to.path === '/register') {
+     next();
+   }else {
+     isLogin ? next() : next('/login');
+   }
+ });
+
+export default router;

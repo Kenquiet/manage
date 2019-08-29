@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { Loading,Message } from 'element-ui';
+import router from './router';
 
 let loading;
 function startLoading() {
@@ -11,12 +12,15 @@ function startLoading() {
 }
 
 function endLoading() {
-  loading.clone()
+  loading.close();
 }
 
 // 请求拦截
 axios.interceptors.request.use(config => {
   startLoading();
+  // 设置请求头
+  config.headers.Authorization = localStorage.eleToken;
+
   return config
 },error => {
   return Promise.reject(error)
@@ -29,6 +33,13 @@ axios.interceptors.response.use(response => {
 },error => {
   endLoading();
   Message.error(error.response.data);
+  const { status } = error.response;
+  if (status === 401) {
+    Message.error('登录过期，请重新登录！');
+    // 清除token
+    localStorage.removeItem('eleToken');
+    router.push('./login');
+  }
   return Promise.reject(error)
 });
 
