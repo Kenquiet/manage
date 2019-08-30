@@ -1,6 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
+const Index = () => import('./views/index.vue');
+const Home = () => import('./views/Home.vue');
+const InfoShow = () => import('./views/InfoShow.vue');
+const Register = () => import('./views/Register.vue');
+const Login = () => import('./views/Login.vue');
+const NotFound = () => import('./views/404.vue');
+
+
 Vue.use(Router);
 
  const router = new Router({
@@ -13,23 +21,28 @@ Vue.use(Router);
     },
     {
       path: '/index',
-      name: 'index',
-      component: () => import('./views/index.vue')
+      name: 'Index',
+      component: Index,
+      children: [
+        { path:'', component: Home },
+        { path:'/home', name: 'Home', component: Home },
+        { path:'/infoshow', name: 'InfoShow', component: InfoShow }
+      ]
     },
     {
       path: '/register',
       name: 'Register',
-      component: () => import('./views/Register.vue')
+      component: Register
     },
     {
       path: '/login',
       name: 'Login',
-      component: () => import('./views/Login.vue')
+      component: Login
     },
     {
       path: '*',
       name: 'NotFound',
-      component: () => import('./views/404.vue')
+      component: NotFound
     }
   ]
 });

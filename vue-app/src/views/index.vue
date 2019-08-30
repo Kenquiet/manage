@@ -1,7 +1,7 @@
 <template>
   <div class="index">
     <headerTop/>
-    页面初始化
+    <router-view/>
   </div>
 </template>
 
@@ -15,3 +15,10 @@
   }
 </script>
 
+<style scoped>
+  .index{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+  }
+</style>
