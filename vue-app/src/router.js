@@ -7,7 +7,7 @@ const InfoShow = () => import('./views/InfoShow.vue');
 const Register = () => import('./views/Register.vue');
 const Login = () => import('./views/Login.vue');
 const NotFound = () => import('./views/404.vue');
-
+const FundList = () => import('./views/FundList.vue');
 
 Vue.use(Router);
 
@@ -26,7 +26,8 @@ Vue.use(Router);
       children: [
         { path:'', component: Home },
         { path:'/home', name: 'Home', component: Home },
-        { path:'/infoshow', name: 'InfoShow', component: InfoShow }
+        { path:'/infoshow', name: 'InfoShow', component: InfoShow },
+        { path:'/fundlist', name: 'FundList', component: FundList }
       ]
     },
     {

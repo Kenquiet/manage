@@ -27,8 +27,10 @@
     overflow: hidden;
   }
   .rightContainer{
-    padding-left: 180px;
-    width: 100%;
-    height: 100%;
+    position: relative;
+    top: 0;
+    left: 180px;
+    width: calc(100% - 180px);
+    height: calc(100% - 71px);
   }
 </style>
