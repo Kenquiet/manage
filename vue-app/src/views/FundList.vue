@@ -100,7 +100,7 @@
         </el-col>
       </el-row>
     </div>
-    <DialogFound :dialog="dialog"  :form="form" @update="getProfiles"></DialogFound>
+    <DialogFound :dialog="dialog"  :form="form" @update="getProfiles()"></DialogFound>
   </div>
 </template>
 

@@ -4,13 +4,7 @@
       <div class="manage_tip">
         <span class="title">诸葛亮在线后台管理系统</span>
       </div>
-      <el-form
-        label-width="80px"
-        :model="registerUser"
-        :rules="rules"
-        ref="registerForm"
-        class="registerForm"
-      >
+      <el-form label-width="80px" :model="registerUser" :rules="rules" ref="registerForm" class="registerForm">
         <el-form-item label="用户名" prop="name">
           <el-input v-model="registerUser.name" placeholder="请输入用户名"></el-input>
         </el-form-item>

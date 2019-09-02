@@ -49,6 +49,15 @@
               ]
           },
           {
+            icon: "fa-money",
+            name: "人员管理",
+            path: "staff",
+            children: [
+              { path: "newlist", name: "新兵信息" },
+              { path: "hurtlist", name: "伤病信息" }
+            ]
+          },
+          {
             icon: "fa-asterisk",
             name: "信息管理",
             path: "info",
